@@ -1,0 +1,83 @@
+[
+  {
+    "firstName": "Иван",
+    "lastName": "Петров",
+    "city": "Москва",
+    "address": "ул. Садовая, 35",
+    "phoneNumber": "(495)143-67-54",
+    "email": "ivan@yahoo.com"
+  },
+  {
+    "firstName": "Ольга",
+    "lastName": "Иванова",
+    "city": "Москва",
+    "address": "ул. Первомайская, 4",
+    "phoneNumber": [
+      "(495)563-62-12",
+      "(916)378-15-35"
+      ],
+    "email": "olga111@mail.ru"
+  },
+  {
+    "firstName": "Алиса",
+    "lastName": "Кольцова",
+    "city": "Санкт-Петербург",
+    "address": "Невский пр., 124",
+    "phoneNumber": "(812)478-13-27",
+    "email": "a_koltsova@mail.ru"
+  },
+  {
+    "firstName": "Евгений",
+    "lastName": "Степанов",
+    "city": "Москва",
+    "address": "ул. Малышева, 37",
+    "phoneNumber": [
+      "(495)701-22-56",
+      "(903)167-61-45"
+      ],
+    "email": "evg@hotmail.com"
+  },
+  {
+    "firstName": "Дмитрий",
+    "lastName": "Осипов",
+    "city": "Москва",
+    "address": "ул. Маросейка, 3",
+    "phoneNumber": "(495)816-56-76",
+    "email": "dmitry15@yahoo.com"
+  },
+  {
+    "firstName": "Анатолий",
+    "lastName": "Антипов",
+    "city": "Санкт-Петербург",
+    "address": "Лиговский пр., 74",
+    "phoneNumber": "(812)445-44-11",
+    "email": "a_ant@yandex.ru"
+  },
+  {
+    "firstName": "Светлана",
+    "lastName": "Фролова",
+    "city": "Ижевск",
+    "address": "ул. Боровая, 25",
+    "phoneNumber": "(3412)675-23-02",
+    "email": "fr87@mail.ru"
+  },
+  {
+    "firstName": "Анастасия",
+    "lastName": "Егорова",
+    "city": "Новороссийск",
+    "address": "ул. Советов, 10",
+    "phoneNumber": [
+      "(8617)912-43-09",
+      "(8617)409-54-01"
+      ],
+    "email": "anastasia@yandex.ru"
+  },
+  {
+    "firstName": "Юрий",
+    "lastName": "Рехов",
+    "city": "Москва",
+    "address": "Кутузовский пр., 17",
+    "phoneNumber": "(495)342-15-17",
+    "email": "rekhov_y@yandex.ru"
+  }
+]
