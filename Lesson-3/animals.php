@@ -27,24 +27,36 @@ $fauna = [
     'Antarctica' => ['Hydrurga leptonyx', 'Spheniscus mendiculus', 'Eudyptes chrysolophus',
      'Aptenodytes forsteri', 'Aptenodytes patagonicus', 'Pygoscelis adeliae', 'Mirounga leonina']
 ];
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animals on the planet</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<?php
 //names consisting of two words
 echo '<h1 class="text-center">Animals on the planet</h1>';
 echo '<h2 class="text-center">Names consisting of two words</h2>';
-echo '<p>';
-foreach ( $fauna as $continent => $animals ) {
-    foreach ( $animals as $key => $animal ) {
+foreach ($fauna as $continent => $animals) {
+    echo '<h3>'.$continent.'</h3>';
+    echo '<ul class="list-inline">';
+    foreach ($animals as $key => $animal) {
         if (strpos($animal, ' ')) {
-          if ($key !== 0) echo ', ';
-          echo $animal;
+          echo '<li class="list-group-item">'.$animal.'</li>';
         }
     }
+    echo '</ul>';
 }
-echo '</p>';
 
 //random names
 echo '<h2 class="text-center">Random names</h2>';
-echo '<p>';
+echo '<p class="random">';
 foreach ($fauna as $continent => $animals) {
     foreach ($animals as $animal) {
         if (strpos($animal, ' ')) {
@@ -73,14 +85,5 @@ foreach ($fauna as $continent => $animals) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Animals on the planet</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
 </body>
 </html>

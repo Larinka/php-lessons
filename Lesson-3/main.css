@@ -1,9 +1,12 @@
 body {padding-bottom: 80px; background: #fdfdfd;}
 h1 {font-size: 32px; font-weight: bold; margin-bottom: 20px; padding: 5px; background: #f5f5f5;}
-h2 {font-size: 28px; margin-top: 30px;}
+h2 {font-size: 28px; margin-top: 40px;}
 h3 {padding: 5px 30px; background: #f5f5f5;}
 tr:first-child, tr:first-child:hover {font-size: 20px; color: #fcfcfc; background-color: #383938;}
 tr:nth-child(even) {background: #f5f5f5;}
 tr.header_name, tr.header_name:hover {background-color: #d6e7cf;}
 tr:hover {background-color: #d6e7cf;}
 p {font-size: 16px; letter-spacing: 0.1px; padding: 0 30px;}
+p.random {line-height: 1.6;}
+ul.list-inline {margin: 0 30px;}
+li.list-group-item {font-size: 16px; letter-spacing: 0.1px; margin-right: -1px;}
