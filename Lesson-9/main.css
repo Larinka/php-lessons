@@ -1,0 +1,18 @@
+body {padding-bottom: 80px;}
+h1 {font-weight: bold; margin-bottom: 40px; position: relative;}
+h1:before {
+  content: '';
+  display: block; width: 400px; height: 1px;
+  position: absolute; top: 50px; left: 0;
+  background: #e2e2e2;
+}
+h1:after {
+  content: '';
+  display: block; width: 160px; height: 5px;
+  position: absolute; top: 46px; left: 0;
+  background: #f3d325;
+}
+figure {margin-bottom: 15px;}
+p.date {font-size: 12px;}
+p.title {font-size: 20px; font-weight: bold;}
+p.text {font-size: 16px; line-height: 1.5; letter-spacing: 0.2px; margin-bottom: 30px;}
