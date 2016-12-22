@@ -1,4 +1,14 @@
-body {padding-bottom: 80px;}
+body {position: relative; padding-top: 66px;}
+nav.navbar {width: 100%; text-align: center; border: none; position: fixed; top: 0; z-index: 1000;}
+ul.nav {padding: 12px 0; list-style: none; text-align: center; background: #1a1a1a; border: none;}
+ul.nav li {text-transform: uppercase; display: inline-block;}
+ul.nav li a {
+  color: #fff; font-size: 16px; font-weight: 400;
+  -moz-transition: 0.4s ease-in-out;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+ul.nav li a:hover {color: #f3d325; background: #1a1a1a;}
 h1 {font-weight: bold; margin-bottom: 40px; position: relative;}
 h1:before {
   content: '';
@@ -15,4 +25,8 @@ h1:after {
 figure {margin-bottom: 15px;}
 p.date {font-size: 12px;}
 p.title {font-size: 20px; font-weight: bold;}
-p.text {font-size: 16px; line-height: 1.5; letter-spacing: 0.2px; margin-bottom: 30px;}
+p.text, figcaption.text {font-size: 16px; line-height: 1.5; letter-spacing: 0.2px; margin-bottom: 30px;}
+figcaption.text {margin-top: 20px;}
+strong.line {font-weight: bold; border-bottom: 2px solid #f3d325;}
+footer.footer {height: 50px; margin-top: 20px; text-align: center; background: #1a1a1a;}
+footer.footer small {color: #fff; line-height: 50px;}

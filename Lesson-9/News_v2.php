@@ -29,6 +29,16 @@
         <title>Новости</title>
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.php">Теория</a></li>
+                        <li><a href="News_v1.php">Новости</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <div class="container">
             <h1>Новости</h1>
             <div class="row">
@@ -72,5 +82,6 @@
                 </div>
             </div>
         </div>
+        <footer class="footer"><small>Vl &#169;</small></footer>
     </body>
 </html>
