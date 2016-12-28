@@ -24,9 +24,17 @@ $cookie2->setWeight(2);
         <title>Дополнительное задание</title>
     </head>
     <body>
+        <header>
+            <nav class="navbar">
+                  <ul class="nav navbar-default">
+                      <li><a href="index.php">Теория</a></li>
+                      <li><a href="products.php">Товары (доп. задание)</a></li>
+                  </ul>
+            </nav>
+        </header>
         <div class="container">
             <h1>Товары</h1>
-            <table class="table table-hover">
+            <table class="table">
                 <tr>
                     <th>Товар</th><th>Вес</th><th>Цена товара</th><th>Цена доставки</th>
                 </tr>
@@ -68,5 +76,7 @@ $cookie2->setWeight(2);
                 </tr>
             </table>
         </div>
+        <div class="rasporka"></div>
+        <footer class="footer"><small>Vl &#169;</small></footer>
     </body>
 </html>

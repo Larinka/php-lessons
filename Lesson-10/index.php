@@ -7,6 +7,14 @@
       <title>Наследование и интерфейсы</title>
   </head>
   <body>
+      <header>
+          <nav class="navbar">
+                <ul class="nav navbar-default">
+                    <li><a href="index.php">Теория</a></li>
+                    <li><a href="products.php">Товары (доп. задание)</a></li>
+                </ul>
+          </nav>
+      </header>
       <div class="container">
           <h1>Наследование и интерфейсы</h1>
           <div class="row">
