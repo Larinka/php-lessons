@@ -9,7 +9,7 @@
         public $leafsForm;
         public $age;
 
-        public function construct($region, $type, $title) {
+        public function __construct($region, $type, $title) {
           $this->region = $region;
           $this->type = $type;
           $this->title = $title;

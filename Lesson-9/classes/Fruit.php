@@ -8,7 +8,7 @@
         public $ripe = false;
         public $price;
 
-        public function construct($title, $price) {
+        public function __construct($title, $price) {
           $this->title = $title;
           $this->price = $price;
         }

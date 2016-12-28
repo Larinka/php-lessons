@@ -8,7 +8,7 @@
         public $material;
         public $price;
 
-        public function construct($type, $price) {
+        public function __construct($type, $price) {
           $this->type = $type;
           $this->price = $price;
         }

@@ -8,7 +8,7 @@
         public $length;
         public $price;
 
-        public function construct($designer, $price)
+        public function __construct($designer, $price)
         {
           $this->designer = $designer;
           $this->price = $price;
