@@ -1,37 +1,36 @@
 <?php
 
-    class Tree
+    class Dress
     {
-        public $region;
-        public $country;
-        public $type;
-        public $title;
-        public $leafsForm;
-        public $age;
+        public $designer;
+        public $style;
+        public $size;
+        public $length;
+        public $price;
 
-        public function construct($region, $type, $title) {
-          $this->region = $region;
-          $this->type = $type;
-          $this->title = $title;
+        public function construct($designer, $price)
+        {
+          $this->designer = $designer;
+          $this->price = $price;
         }
 
-        public function setCountry($country)
+        public function setStyle($style)
         {
-          $this->country = $country;
+          $this->style = $style;
         }
 
-        public function setLeafsForm($leafsForm)
+        public function setSize($size)
         {
-          $this->leafsForm = $leafsForm;
+          $this->size = $size;
         }
 
-        public function setAge($age)
+        public function setLength($length)
         {
-          $this->age = $age;
+          $this->length = $length;
         }
 
-        public function getCountry()
+        public function getSize()
         {
-          return $this->country;
+          return $this->size;
         }
     }
