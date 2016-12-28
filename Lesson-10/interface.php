@@ -1,51 +1,112 @@
 <?php
 
-//интерфейс собаки
-interface IntDog
-{
-  public function sleep();
-  public function eat();
-  public function play();
-}
-
-//абстрактный класс собаки
-abstract class AbstractDog
-{
-  public $breed;
-  public $gender;
-  public $age;
-  public $name;
-
-  public function checkName($name) {
-    return 'Собаку зовут ' . $name;
-  }
-  public function makeSound($name) {
-    return $name . ' лает';
-  }
-}
-
-//класс конкретной собаки
-class SomeDog extends AbstractDog implements IntDog
-{
-  public function __construct($breed, $gender, $age, $name) {
-    $this->breed = $breed ;
-    $this->gender = $gender;
-    $this->age = $age;
-    $this->name = $name;
+  //Общий интерфейс
+  interface CommonInterface
+  {
+    public function __construct($title, $price, $country);
+    public function getTitle();
+    public function getPrice();
+    public function getCountry();
   }
 
-  public function sleep() {
-    return $this->breed . ' спит в среднем по 15 часов в день.';
+  //Интерфейс класса Fruit
+  interface IFruit extends CommonInterface
+  {
+    public function setColor($color);
+    public function setQuality($ripe);
   }
-  public function eat() {
-    return $this->name . ' молодой, ему всего' . $this->age . ', поэтому ест много.';
-  }
-  public function play() {
-    return $this->name . ' породы ' . $this->breed . ' молодой, ему всего ' . $this->age . ', поэтому играет он еще больше, чем ест.';
-  }
-}
- $dog = new SomeDog('Бультерьер', 'Кобель', '2 года', 'Пес');
- $dog->makeSound('Пес');
- $dog->play();
 
-?>
+  //Интерфейс класса Table
+  interface ITable extends CommonInterface
+  {
+    public function setMaterial($material);
+    public function setHeight($height);
+  }
+
+  //Общий класс
+  class CommonClass implements CommonInterface
+  {
+    public $title;
+    public $price;
+    public $country;
+
+    public function __construct($title, $price, $country)
+    {
+      $this->title = $title;
+      $this->price = $price;
+      $this->country = $country;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
+    }
+  }
+
+  //Класс Fruit
+  class Fruit extends CommonClass implements IFruit
+  {
+    public $color;
+    public $ripe = false;
+
+    public function setColor($color)
+    {
+      $this->color = $color;
+    }
+
+    public function setQuality($ripe)
+    {
+      $this->ripe = $ripe;
+    }
+
+    public function getColor()
+    {
+      return $this->color;
+    }
+
+    public function getQuality()
+    {
+      if ($this->ripe) {
+        return 'спелый';
+      } else {
+        return 'неспелый';
+      }
+    }
+  }
+
+  //Класс Table
+  class Table extends CommonClass implements ITable
+  {
+    public $material;
+    public $height;
+
+    public function setMaterial($material)
+    {
+      $this->material = $material;
+    }
+
+    public function setHeight($height)
+    {
+      $this->height = $height;
+    }
+
+    public function getMaterial()
+    {
+      return $this->material;
+    }
+
+    public function getHeight()
+    {
+      return $this->height;
+    }
+  }
