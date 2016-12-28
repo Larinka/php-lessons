@@ -4,14 +4,14 @@
       <meta charset="utf-8">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       <link rel="stylesheet" href="main.css">
-      <title>Занятие 3.1. Классы и объекты</title>
+      <title>Классы и объекты</title>
   </head>
   <body>
       <header>
           <nav class="navbar">
                 <ul class="nav navbar-default">
                     <li><a href="index.php">Теория</a></li>
-                    <li><a href="News_v1.php">Новости</a></li>
+                    <li><a href="news.php">Новости</a></li>
                 </ul>
           </nav>
       </header>
