@@ -83,10 +83,8 @@
                       </td>
                       <td>
                         <?php if (isset($_POST['change']) && $_POST['change'] == $task['id'] . 't1'): ?>
-                            <div style="text-align: center">
-                                <button type="submit" class="btn btn-info" name="change_id" value="<?php echo $task['id']?>">Сохранить</button>
-                                <button type="submit" class="btn btn-info" name="change_id" value="">Отмена</button>
-                            </div>
+                            <button type="submit" class="btn btn-info" name="change_id" value="<?php echo $task['id']?>">Сохранить</button>
+                            <button type="submit" class="btn btn-info" name="change_id" value="">Отмена</button>
                         </form>
                       <?php else: ?>
                           <form method="post">
@@ -106,12 +104,12 @@
               <?php if(isset($_SESSION['error'])):?>
                   <h4 class="error"><?php echo $_SESSION['error'] ?></h4>
               <?php endif; ?>
-              <?php $tasksWhereUserIsResponsible = $tasks->tasksWhereUserIsResponsible(); ?>
+              <?php $tasksWhereUserAssigned = $tasks->tasksWhereUserAssigned(); ?>
               <table class="table">
                   <tr>
                       <th>Дата добавления</th><th>Описание задачи</th><th>Статус</th><th>Автор</th><th>Действия</th>
                   </tr>
-                  <?php foreach ($tasksWhereUserIsResponsible as $task): ?>
+                  <?php foreach ($tasksWhereUserAssigned as $task): ?>
                   <tr>
                       <td>
                           <?php if (isset($_POST['change']) && $_POST['change'] == $task['id'] . 't2'): ?>

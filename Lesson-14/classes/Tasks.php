@@ -51,7 +51,7 @@ class Tasks
     return $result;
     }
 
-    public function tasksWhereUserIsResponsible()
+    public function tasksWhereUserAssigned()
     {
         $this->sortBy();
         if (isset ($this->sortBy)) {
