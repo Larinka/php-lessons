@@ -4,16 +4,6 @@ function getQueryParam($name) {
     return isset($_REQUEST[$name]) ? $_REQUEST[$name] : null;
 }
 
-function uploadFile($fieldName, $newName) {
-    $newPath = __DIR__ . '/tests';
-    $tmpFile = $_FILES[$fieldName]['tmp_name'];
-    if(!move_uploaded_file($tmpFile, $newPath . '/' . 'test_' . $newName)) {
-       return false;
-    } else {
-        return true;
-    }
-}
-
 function isPOST() {
     return $_SERVER['REQUEST_METHOD'] == 'POST';
 }
@@ -23,11 +13,7 @@ function isGET() {
 }
 
 function getUploadedFileClientName() {
-    return isset($_FILES['test']) ? $_FILES['test']['name'] : null;
-}
-
-function getUploadedFileNewName() {
-    return md5(getUploadedFileClientName()) . '.json';
+    return isset($_FILES['testJson']) ? $_FILES['testJson']['name'] : null;
 }
 
 function isAllowedExt($fileName) {
@@ -42,18 +28,74 @@ function getExtFile($fileName) {
     return substr($fileName, strrpos($fileName, '.') + 1);
 }
 
-function showTests() {
-    $files = glob(__DIR__ . "/tests/test_*.json");
-    $tests = [];
-    foreach ( $files as $file ) {
-      $data = json_decode(file_get_contents($file), true);
-      foreach ( $data as $test ) {
-        $tests[] = $test;
-      }
+function showUploadedTests ($uploadDir) {
+
+    if ($handle = opendir($uploadDir)) {
+        $i = 1;
+        $tests = [];
+
+        while (false !== ($entry = readdir($handle))) {
+            $sourceFileName = basename($entry);
+            $sourceFileType = substr($sourceFileName, -4, 4);
+
+            if ($sourceFileType === 'json')
+            {
+                $tests[$i] = $sourceFileName;
+                $i++;
+            }
+        }
     }
     return $tests;
 }
 
-function xssafe($data, $encoding='UTF-8') {
-    return htmlspecialchars($data, ENT_QUOTES | ENT_HTML401, $encoding);
+function checkAnswers ($sumbittedQuestionID, $correctAnswer) {
+    if (isset($sumbittedQuestionID) && !is_null($sumbittedQuestionID)) {
+        $usersAnswer = mb_strtolower($sumbittedQuestionID);
+        $correctAnswer = mb_strtolower($correctAnswer);
+
+        if ($usersAnswer == $correctAnswer) {
+            echo "<p class=\"correct\">Верно!</p><br>";
+        } else {
+            echo "<p class=\"error\">Не верно</p><br>";
+        }
+    }
+}
+
+function notAllFieldsFilled ($jsonDecoded) {
+    foreach ($jsonDecoded as $question) {
+        if (empty($_POST["answer_$question[id]"])) {
+            $notAllFieldsFilled = true;
+            return $notAllFieldsFilled;
+        }
+    }
+}
+
+function showTest ($jsonDecoded) {
+
+    echo "<form method=\"post\">";
+
+    foreach ($jsonDecoded as $question) {
+        if (!empty($_POST)) {
+            $usersAnswer = $_POST["answer_$question[id]"];
+        } else {
+            $usersAnswer = "";
+        }
+        echo "<label for=\"answer_$question[id]\">Вопрос № $question[id]. $question[question]</label>";
+        echo "<input id=\"answer_$question[id]\" name=\"answer_$question[id]\" class=\"form-control\" placeholder=\"Ваш ответ\" value=\"$usersAnswer\"/>";
+        if (notAllFieldsFilled($jsonDecoded) !== true) {
+            checkAnswers ($usersAnswer, $question['answer']);
+        }
+    }
+
+    if (notAllFieldsFilled($jsonDecoded) == true) {
+        echo "<br>";
+        echo "<button type=\"submit\" class=\"btn btn-info\">Проверить</button>";
+    }
+
+    echo "</form><br>";
+
+    if (notAllFieldsFilled($jsonDecoded) == true && !empty($_POST)) {
+        echo "<p class=\"error\">Нельзя проверить тест. Вы ответили не на все вопросы.</p>";
+    }
+
 }

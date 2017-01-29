@@ -2,12 +2,15 @@
     session_start();
     require_once "autoloader.php";
     require_once "config.php";
-    $db = new DB();
-    $db->connectToDB();
+    $db = new Db();
+    $db->connectToDb();
     $authorization = new Authorization($db);
     $authorization->isLoggedIn();
     $tasks = new Tasks($db);
     $tasks->userAction();
+    $userName = $_SESSION['username'];
+    $tasksCreatedByUser = $tasks->tasksCreatedByUser();
+    $tasksWhereUserAssigned = $tasks->tasksWhereUserAssigned();
 ?>
 
 <!doctype html>
@@ -21,7 +24,7 @@
     <body>
         <div class="container">
               <h1>Задачи</h1>
-              <h2>Привет, <?php echo $_SESSION['username'] ?></h2>
+              <h2>Привет, <?php echo $userName ?></h2>
               <form method="POST" class="form-inline">
                   <div class="form-group">
                       <label for="new_task">Новая задача</label>
@@ -41,7 +44,6 @@
               </form>
 
               <h3>Написанные тобой задачи:</h3>
-              <?php $tasksCreatedByUser = $tasks->tasksCreatedByUser(); ?>
               <table class="table">
                   <tr>
                       <th>Дата добавления</th><th>Описание задачи</th><th>Статус</th><th>Исполнитель</th><th>Действия</th>
@@ -79,7 +81,7 @@
                                   <option value="<?php echo $user['user_id'] ?>"><?php echo $user['username'] ?></option>
                                   <?php endforeach; ?>
                               </select>
-                          <?php elseif($task['responsible'] == $_SESSION['username']) : echo $_SESSION['username'] . ' (Я)'; else : echo $task['responsible']; endif; ?>
+                          <?php elseif($task['responsible'] == $userName) : echo $userName . ' (Я)'; else : echo $task['responsible']; endif; ?>
                       </td>
                       <td>
                         <?php if (isset($_POST['change']) && $_POST['change'] == $task['id'] . 't1'): ?>
@@ -104,7 +106,6 @@
               <?php if(isset($_SESSION['error'])):?>
                   <h4 class="error"><?php echo $_SESSION['error'] ?></h4>
               <?php endif; ?>
-              <?php $tasksWhereUserAssigned = $tasks->tasksWhereUserAssigned(); ?>
               <table class="table">
                   <tr>
                       <th>Дата добавления</th><th>Описание задачи</th><th>Статус</th><th>Автор</th><th>Действия</th>
@@ -135,7 +136,7 @@
                           endif; ?>
                       </td>
                       <td>
-                          <?php if ($task['author'] == $_SESSION['username']) : echo $_SESSION['username'] . ' (Я)'; else : echo $task['author']; endif;  ?>
+                          <?php if ($task['author'] == $userName) : echo $userName . ' (Я)'; else : echo $task['author']; endif;  ?>
                       </td>
                       <td>
                         <?php if (isset($_POST['change']) && $_POST['change'] == $task['id'] . 't2'): ?>

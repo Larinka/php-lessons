@@ -8,10 +8,12 @@ header.header {
   background: linear-gradient(0deg, rgb(255, 255, 255) 13%, rgb(49, 176, 213) 70%);
 }
 h1 {color: #f5f5f5; text-align: center; margin: 0 0 30px; padding: 15px;}
-h3 {text-align: center; margin-bottom: 20px;}
 .center {text-align: center;}
-.left {text-align: left;}
-label {font-size: 17px;}
+p {font-size: 16px;}
+p.hello {font-size: 24px;}
+p.error {color: red; font-style: italic;}
+p.correct {color: green; font-style: italic;}
+p.tip {color: #999; font-size: 12px; margin: 5px 0 0;}
 .input-container {
   font-size: 16px; line-height: 1;
   width: 180px; padding: 9px; margin: 0 auto; text-align: center;
@@ -28,11 +30,11 @@ label {font-size: 17px;}
   opacity: 0; filter: alpha(opacity=0);
   cursor: pointer;
 }
-.form-group p {color: #c2c2c2;}
-.btn {font-size: 16px;}
-button.enter {margin-top: 15px; padding: 6px 50px;}
+button.upload, a.upload {margin-top: 15px;}
 a.ml {margin-left: 5px;}
-p.hello {font-size: 24px;}
-.test-question {margin: 10px 0 20px;}
-.nb {border: none !important;}
-th {font-size: 20px;}
+ul.tests_list {padding-left: 0;}
+ul.tests_list li {
+  display: inline-block; padding: 5px 10px; margin-right: 15px;
+  border: 1px solid #ccc;
+}
+ul.tests_list li:last-child {margin-right: 0;}
