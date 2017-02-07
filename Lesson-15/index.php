@@ -2,8 +2,9 @@
     session_start();
     require_once "autoloader.php";
     require_once "config.php";
-    $db = new DB();
-    $db->connectToDB();
+    $db = new Db();
+    $db->connectToDb();
+    $selectTable = isset($_POST['select_table']) ? $_POST['select_table'] : false;
 ?>
 
 <!doctype html>
@@ -28,13 +29,13 @@
                   <button type="submit" class="btn btn-info" name="save">Выбрать</button>
               </form>
 
-              <?php if (isset($_POST['select_table'])) : ?>
+              <?php if ($selectTable == true) : ?>
                   <table class="table">
                       <tr>
                           <th>Поле</th><th>Тип</th><th>NULL</th><th>Ключ</th><th>Значение по умолчанию</th><th>Дополнительно</th>
                       </tr>
                       <tr>
-                          <?php $tableInfo = $db->getTableInfo($_POST['select_table']);
+                          <?php $tableInfo = $db->getTableInfo($selectTable);
                           foreach ($tableInfo as $field): ?>
                       <tr>
                           <?php foreach ($field as $detail): ?>
